@@ -1,0 +1,273 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Customer Equipment List - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="r-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Customers &#8594; Customer Equipment List</p>
+		</div>
+            <h2>Customer Equipment List</h2>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+			        <li class="nav-item active">
+			            <a class="nav-link" id="enter-equipment" tabindex="9">Enter new Equipment</a>
+			        </li>
+			    </ul>
+			</nav>
+            <table id="titleTable" class="cel-top-table" style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding-top: 20px;">Customer:</td>
+                    <td class="table-display" style="padding-top: 20px;" id="custfname"></td>
+                    <td class="table-display" style="padding-top: 20px;" id="custlname"></td>
+                    <td style="padding-top: 20px;">|</td>
+                    <td style="padding-top: 20px;">Email:</td>
+                    <td class="table-display" style="padding-top: 20px;" id="custemail"></td>
+                </tr>
+            </table>       
+			<div style="overflow-x:auto;">
+				<table id="customerTable" class="largetable">
+					<thead>
+					<tr>
+						<th style="padding-top: 20px;">Serial #</th>
+                        <th style="padding-top: 20px;">Model #</th>
+                        <th style="padding-top: 20px;">Warranty</th>
+                        <th style="padding-top: 20px;">Type</th>
+                        <th style="padding-top: 20px;">Colour</th>
+                        <th style="padding-top: 20px;">Manufacturer</th>
+						<th class="notSortable"></th>
+						<th class="notSortable"></th>
+					</tr>
+					</thead>
+					<tr>
+                        <td id="displayserial"></td>
+                        <td id="displaymodel"></td>
+                        <td id="displaywarranty"></td>
+                        <td id="displaytype"></td>
+                        <td id="displaycolour"></td>
+                        <td id="displaymanufacturer"></td>
+						<td>
+							<button name="btnRepairs" id="repairs">Repairs</button>
+						</td>
+						<td>
+							<button name="btnNewRepair" id="newRepair" onclick="handleBtnNewRepair(this)">New Repair</button>
+						</td>
+                    </tr>
+				</table>
+				<div class="spacer"></div>
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+					</li>
+				 </ul>
+			</nav>
+			<div class="tooltip">HELP
+				<span class="tooltiptext">Use the REPAIRS button to see a list of open and closed repairs for the piece of equipment to the left.<br><br>
+				Use the NEW REPAIR button to open a new repair for the piece of equipment to the left.</span>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		
+		$(document).ready(function() {
+    	// Initialize DataTable - similar to line 20 of the link above instead of using a json file it refers to the html DT
+		let table = $('#customerTable').DataTable({
+			order: [[0, 'asc']], //
+			paging: true, //Enable pagination
+			searching: true, //Enable searching
+			responsive: true, //Enable responsive design
+			//Looks at all the columns and sets the orderable functionality to false on the specified target
+			//using -1 meaning the last item in the column list which is the edit button
+			columnDefs:[
+				{orderable:false, targets: -1}
+			],
+			lengthMenu: [
+				[5, 10, 25, -1],
+				[5, 10, 25, 'All']]
+			})});
+
+		// When newRepair is clicked capture the customers first and last name, store in local storage and redirect
+		document.getElementById("repairs").addEventListener("click", function() {
+    		
+			
+			var titleTable = document.getElementById("titleTable");
+    		var firstName = titleTable.rows[0].cells[1].innerHTML;
+    		var lastName = titleTable.rows[0].cells[2].innerHTML;
+    		var email = titleTable.rows[0].cells[5].innerHTML;
+
+			var customerData = {
+				firstName: firstName,
+				lastName: lastName,
+				email: email
+			}
+    		
+			var customerJSON = JSON.stringify(customerData);
+			localStorage.setItem('customerData', customerJSON);
+			window.location.href = 'repair.html';
+		});
+
+		document.getElementById("enter-equipment").addEventListener("click", function() {
+    		var titleTable = document.getElementById("titleTable");
+    		var firstName = titleTable.rows[0].cells[1].innerHTML;
+    		var lastName = titleTable.rows[0].cells[2].innerHTML;
+			var email = titleTable.rows[0].cells[5].innerHTML;
+    		
+			var customerData = {
+				firstName: firstName,
+				lastName: lastName,
+				email: email
+			}
+    		
+			var customerJSON = JSON.stringify(customerData);
+			localStorage.setItem('customerData', customerJSON);
+			window.location.href = 'create-equipment.html';
+			
+		});
+
+		function handleBtnNewRepair(button){
+			var buttonName = button.name;
+			
+			//store btnID for future use 
+			var btnId = button.id;
+
+			//Gets the button with its associated table row
+			var clickedRow = button.closest('tr');
+
+			//Stores the data passed through button into variables (and each cell) 
+			var titleTable = document.getElementById("titleTable");
+    		var firstName = titleTable.rows[0].cells[1].innerHTML;
+    		var lastName = titleTable.rows[0].cells[2].innerHTML;
+			var customer = firstName + " " + lastName;
+            var type = clickedRow.cells[3].innerText;
+            var serialNumber = clickedRow.cells[0].innerText;
+
+			//Convert to JSON to store to local storage
+			var repairData = {
+				customer:customer,
+				type:type,
+				serialNumber:serialNumber
+			}
+			//Storing to local storage
+			var repairJSON = JSON.stringify(repairData)
+			//Stores the name as repairData in local storage
+			localStorage.setItem('repairData', repairJSON)
+			// INSPECT => PRESS >> => Application => Local Storage => file:// => Under Key repairData
+			//Then send user to edit page
+			window.location.href = 'create-customer-repair.html';
+		}
+
+        var custData = localStorage.getItem('customerData');
+
+        if (custData){
+
+            var customerData = JSON.parse(custData)
+
+            document.getElementById('custfname').innerHTML = customerData.firstName;
+            document.getElementById('custlname').innerHTML = customerData.lastName;
+            document.getElementById('custemail').innerHTML = customerData.email;
+            
+           localStorage.setItem('equipmentData', JSON.stringify(customerData))
+			}
+		else
+		{
+			alert('Data failed')
+		}
+        
+        //Hardcoded values for equipment based on the customer name, for demonstration purposes.
+		let email = customerData.email;
+
+		if (email == 'eric99@hotmail.com'){
+			document.getElementById('displayserial').innerHTML = "18364";
+			document.getElementById('displaymodel').innerHTML = "L33647";
+			document.getElementById('displaywarranty').innerHTML = "No";
+			document.getElementById('displaytype').innerHTML = "Weed Whacker";
+			document.getElementById('displaycolour').innerHTML = "Green";
+			document.getElementById('displaymanufacturer').innerHTML = "Generac";
+			}
+		else if (email == 'hjohnson@bodybreak.com'){
+			document.getElementById('displayserial').innerHTML = "78364";
+			document.getElementById('displaymodel').innerHTML = "LK3647";
+			document.getElementById('displaywarranty').innerHTML = "No";
+			document.getElementById('displaytype').innerHTML = "Weed Whacker";
+			document.getElementById('displaycolour').innerHTML = "Blue";
+			document.getElementById('displaymanufacturer').innerHTML = "Briggs and Stratton";
+		}
+		else if (email == 'thesaxman@enterprise.fed'){
+			document.getElementById('displayserial').innerHTML = "87656";
+			document.getElementById('displaymodel').innerHTML = "M23243234";
+			document.getElementById('displaywarranty').innerHTML = "Yes";
+			document.getElementById('displaytype').innerHTML = "Lawn Mower";
+			document.getElementById('displaycolour').innerHTML = "Red";
+			document.getElementById('displaymanufacturer').innerHTML = "Honda";
+		}
+		else if (email == 'Mil42@gmail.com'){
+			document.getElementById('displayserial').innerHTML = "78365";
+			document.getElementById('displaymodel').innerHTML = "LK3647";
+			document.getElementById('displaywarranty').innerHTML = "No";
+			document.getElementById('displaytype').innerHTML = "Auger";
+			document.getElementById('displaycolour').innerHTML = "Blue";
+			document.getElementById('displaymanufacturer').innerHTML = "Subaru";
+		}
+		else {
+			document.getElementById('displayserial').innerHTML = "N/A";
+			document.getElementById('displaymodel').innerHTML = "N/A";
+			document.getElementById('displaywarranty').innerHTML = "N/A";
+			document.getElementById('displaytype').innerHTML = "N/A";
+			document.getElementById('displaycolour').innerHTML = "N/A";
+			document.getElementById('displaymanufacturer').innerHTML = "N/A";
+		}
+	</script>
+</body> 
+</html> 

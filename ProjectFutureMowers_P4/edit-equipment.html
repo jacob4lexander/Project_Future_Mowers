@@ -1,0 +1,200 @@
+<!DOCTYPE HTML> 
+<html lang="en">
+<head> 
+<meta charset="utf-8"> 
+<title>Edit Equipment - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="cu-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Equipment &#8594; Edit Equipment</p>
+		</div>	
+			<h2>Edit Equipment</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" href="edit-equipment-dropdown-menus.html">Edit Dropdown Menus</a>
+					</li>
+				</ul>
+			</nav>   
+			<div class="cu-container">
+				<form>
+				<table class="smalltable" style="border-collapse: collapse;">
+					<tr>
+					    <td style="padding-top: 20px;">Serial #</td>
+					    <td style="padding-top: 20px;"><input type="text" id="serialNumber" name="serialnumber" title="Serial number input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Model #</td>
+					    <td style="padding-top: 20px;"><input type="text" id="modelnumber" name="modelnumber" title="Model number input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Warranty</td>
+					    <td style="padding-top: 20px;"><input type="checkbox" id="warranty" name="warranty" title="Warranty checkbox"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;"><label for="inputDateReceived">Received Date</label></td>
+                        <td style="padding-top: 20px;"><input type="datetime-local" id="inputDateReceived" name="datereceived" onfocus="(this.type='datetime-local')"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 20px;"><label for="inputDateDeparture">Departure Date</label></td>
+                        <td style="padding-top: 20px;"><input type="datetime-local" id="inputDateDeparture" name="datedeparture" onfocus="(this.type='datetime-local')"></td>
+                    </tr>
+					<tr>
+					    <td style="padding-top: 20px;">Type</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="eeddl" id="selectType" title="Equipment type selection dropdown menu">
+                                <option value="" selected disabled>Not Selected</option>
+						        <option value="Lawn Mower">Lawn Mower</option>
+						        <option value="Weed Whacker">Weed Whacker</option>
+						        <option value="Hedge Trimmer">Hedge Trimmer</option>
+						        <option value="Auger">Auger</option>
+						        <option value="Chainsaw">Chainsaw</option>
+      						</select>
+					    </td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Colour</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="eeddl" id="selectColour" title="Colour selection dropdown menu">
+                                <option value="" selected disabled>Not Selected</option>
+						        <option value="White">White</option>
+						        <option value="Black">Black</option>
+						        <option value="Red">Red</option>
+						        <option value="Green">Green</option>
+						        <option value="Blue">Blue</option>
+						        <option value="Yellow">Yellow</option>
+						        <option value="Orange">Orange</option>
+						        <option value="Grey">Grey</option>
+      						</select>
+					    </td>
+					</tr>    
+                    <tr>
+					    <td style="padding-top: 20px;">Manufacturer</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="eeddl" id="selectManufacturer" title="Manufacturer selection dropdown menu">
+                                <option value="" selected disabled>Not Selected</option>
+						        <option value="Honda">Honda</option>
+						        <option value="Briggs and Stratton">Briggs and Stratton</option>
+						        <option value="Generac">Generac</option>
+						        <option value="Subaru">Subaru</option>
+						        <option value="Kawasaki">Kawasaki</option>
+      						</select>
+					    </td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Customer</td>
+					    <td style="padding-top: 20px;"><input type="text" id="customer" name="customer" title="Customer name input"></td>
+					</tr>
+				</table>
+			</div>
+            <div class="row">
+				<div class="column">
+					<div class="reset-container">
+						<button type="reset">Reset</button>
+					</div>
+				</div>
+				<div class="column">
+					<div class="eq-submit-container">
+						<button type="submit" id="btnSubmit">Submit</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<ul class="link-center">
+				<li class="nav-item active">
+					<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+				</li>
+			 </ul>
+		</nav>	
+		</div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		//Retrieved Passed DATA (coming as JSON so needs to be parsed)
+		var equipData = localStorage.getItem('equipmentData')
+		
+			//Filling text boxes and the values with the object data/properties
+			document.getElementById('serialNumber').value = '5433';
+			document.getElementById('modelnumber').value = '54332';
+			document.getElementById('warranty').checked = false;
+			document.getElementById('selectType').value = 'Lawn Mower';
+			document.getElementById('selectColour').value = 'Red';
+			document.getElementById('selectManufacturer').value = 'Honda';
+			document.getElementById('customer').value = 'Alejandro Howell';
+
+		//QoL, make it so whenever the page is fully loaded, the received date is defaulted to todays date
+        document.addEventListener("DOMContentLoaded",function(){
+            defaultDate('inputDateReceived')
+			defaultDate('inputDateDeparture')
+        })
+        //https://tecadmin.net/get-current-date-time-javascript/ 
+        //gets the info passed to it, then sets the inputField to the date
+        function defaultDate(inputId) {
+            var inputField = document.getElementById(inputId); 
+
+            //date constructor allowing us to hold todays date
+            var date = new Date();
+
+            //current date is converted into string format, and then only the first 10 characters are extracted
+            // "YYYY-MM-DD" not taking hours/minutes because theres an offset of 5 hours or whatever it was. 
+            var currentDate = date.toISOString().slice(0,10);
+
+            //Then we get the hours and minutes. If the minutes is less than 10, add a zero before so it can format properly,
+            // Then adding the actual minutes to the end. 
+            var currentTime = date.getHours() + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+            // Adds the date and time, "T" acts as a delimeter so it is able to read the date properly.
+            inputField.value = currentDate + "T" + currentTime;
+        }
+
+			
+
+	</script>
+</body> 
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML> 
+<html lang="en">
+<head> 
+<meta charset="utf-8"> 
+<title>Emma's Small Engines Home</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="css/loginstyle.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<main>
+        <div class="logoDesign">
+        <form action="#" method="post">
+            <h3>Login</h3>
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" id="username" required>
+    
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+    <div class="loginButtons">
+        <button id="btnAdminLogin" name="loginBtns" value="admin">Admin Login</button>
+        <button id="btnSalesLogin" name="loginBtns" value="sales">Sales Login</button>
+        <button id="btnTechnicianLogin" name="loginBtns" value="technician">Technician Login</button>
+    </div>
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            //Login Through Buttons Functions
+            document.querySelectorAll('[name="loginBtns"]').forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                var loginValue = event.target.value;
+                console.log("Login value: " + loginValue);
+                
+                //remove the previous login values
+                switch (loginValue) {
+                case "admin":
+                    localStorage.removeItem('sales');
+                    localStorage.removeItem('technician');
+                    break;
+                case "sales":
+                    localStorage.removeItem('admin');
+                    localStorage.removeItem('technician');
+                    break;
+                case "technician":
+                    localStorage.removeItem('admin');
+                    localStorage.removeItem('sales');
+                    break;                
+                }
+                //set the new login value / redirect to index page
+                localStorage.setItem("loginValue", loginValue)
+                window.location.href = "index.html"
+            })});
+        })
+    </script>
+    
+</body> 
+</html>

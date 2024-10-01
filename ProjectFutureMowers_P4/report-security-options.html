@@ -1,0 +1,141 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Security Report Options - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body onload="">
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="edm-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Reports &#8594; Security Report Options</p>
+		</div>
+			<h2>Security Report <br>Options</h2>
+			<div class="cu-container">
+				<p class="center-text">Select from the options below to generate a report.</p>
+				<form>
+				<table class="smalltable" style="border-collapse: collapse;">
+					<tr>
+                        <td style="padding-top: 20px;"><label for="secRepDateStart">Start Date</label></td>
+						<td style="padding-top: 20px;">
+							<input class="" type="datetime-local" id="secRepDateStart" name="startDate" onfocus="defaultDate()" required>
+						</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 20px;"><label for="secRepDateEnd">End Date</label></td>
+						<td style="padding-top: 20px;">
+							<input class="" type="datetime-local" id="secRepDateEnd" name="endDate" onfocus="defaultDate()" required>
+						</td>
+                    </tr>
+                    <tr>
+                    <td style="padding-top: 20px;">New Accounts</td>
+						<td style="padding-top: 20px;">
+							<input class="eneinput" type="checkbox" name="newAccounts" title="New accounts checkbox" checked>
+						</td>
+                    </tr>
+                    <td style="padding-top: 20px;">Total Accounts</td>
+						<td style="padding-top: 20px;">
+							<input class="eneinput" type="checkbox" name="totalAccounts" title="Total accounts checkbox" checked>
+						</td>
+                    </tr>
+                    <td style="padding-top: 20px;">By Type<div class="tooltip">?<span class="tooltiptext">Breaks down the accounts by department.</span></div></td>
+						<td style="padding-top: 20px;">
+							<input class="eneinput" type="checkbox" name="role" title="By role checkbox" checked>
+						</td>
+                    </tr>
+                    <tr>
+                    <td style="padding-top: 20px;">Failed Logins</td>
+						<td style="padding-top: 20px;">
+							<input class="eneinput" type="checkbox" name="passwords" title="Failed logins checkbox" checked>
+						</td>
+                    </tr>
+                </table>
+				</form>
+                <div class="column">
+					<div class="rep-submit-container">
+						<button type="submit" onclick="handleBtnNav()">Submit</button>
+					</div>
+				</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+			    <ul class="link-center">
+			        <li class="nav-item active">
+			            <a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+			        </li>
+			    </ul>
+			</nav>
+        </div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            defaultDate('secRepDateStart')
+            defaultDate('secRepDateEnd')
+        })
+        function defaultDate(inputId) {
+            var inputField = document.getElementById(inputId); 
+
+            //date constructor allowing us to hold todays date
+            var date = new Date();
+
+            //current date is converted into string format, and then only the first 10 characters are extracted
+            // "YYYY-MM-DD" not taking hours/minutes because theres an offset of 5 hours or whatever it was. 
+            var currentDate = date.toISOString().slice(0,10);
+
+            //Then we get the hours and minutes. If the minutes is less than 10, add a zero before so it can format properly,
+            // Then adding the actual minutes to the end. 
+            var currentTime = date.getHours() + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+            // Adds the date and time, "T" acts as a delimeter so it is able to read the date properly.
+            inputField.value = currentDate + "T" + currentTime;
+        }
+
+		function handleBtnNav() {
+            window.location.href = 'report-security-preview.html';
+        }
+    </script>
+</body> 
+</html>
+

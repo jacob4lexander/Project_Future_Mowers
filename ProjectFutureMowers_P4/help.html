@@ -1,0 +1,97 @@
+<!DOCTYPE HTML> 
+<html lang="en">
+<head> 
+<meta charset="utf-8"> 
+<title>Help - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="help-shaded-rec" style="overflow-y:auto;">
+			<h2>Help</h2>
+			<div class="help-page">
+                <p class="help-titles">Management:</p>
+                <p class="help-text">&bull; To select a report to generate, click the <a class="nav-link, nav-item" id="help-nav-links" href="report-selection.html"><b>REPORTS</b></a> link in the top right nav menu.</p>
+                <p class="help-text">&bull; Select which report to generate by clicking on the corresponding button.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Warranty</button> <button class="example-button">Financial</button> <button class="example-button">Security</button></p>
+                <p class="help-text">&bull; Select which options you want included in the report and then click<button class="example-button">Submit</button>to goto the preview page.</p>
+                <p class="help-text">&bull; On the preview page you will see the generated report. There will also be 3 buttons below the report.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Save</button> will allow you to save a copy of the report.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Print</button> will allow you to print the report.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Share</button> will allow you to share the report by email.</p>
+				<p class="help-titles">Sales:</p>
+                <p class="help-text">&bull; View the current customer list by clicking the <a class="nav-link, nav-item" id="help-nav-links" href="customer.html"><b>CUSTOMERS</b></a> link in the top right nav menu.</p>
+                <p class="help-text">&bull; Enter a new customer by clicking the  <a class="nav-link, nav-item" id="help-nav-links" href="create-customer.html"><b>CREATE NEW CUSTOMER</b></a> link
+                    on the Customers page.</p>
+                <p class="help-text">&bull; To the right of each customer in the list are 3 buttons.<br>&nbsp;&nbsp;&nbsp;<button class="example-button">Details</button> will reveal their address information.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Edit</button> will take you to a page where you can edit that customer's information. <br>
+                    &nbsp;&nbsp;&nbsp;<button class="example-button">Equipment</button> will reveal what equipment belongs to that customer.</p>
+                <p class="help-text">&bull; When a customer's equipment has been revealed, there will be 2 buttons to the right of each piece of equipment.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Edit</button> will take you to a page where you can edit the info for that piece of equipment.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">New Repair</button> will allow you to create a new repair request for that piece of equipment.</p>
+                <p class="help-text">&bull; You can also get to the Repairs page by clicking the <a class="nav-link, nav-item" id="help-nav-links" href="repair.html"><b>REPAIRS</b></a> link
+                        in the top right nav menu.</p>
+                <p class="help-titles">Technicians:</p>
+                <p class="help-text">&bull; View repair requests by clicking the <a class="nav-link, nav-item" id="help-nav-links" href="repair-session.html"><b>SESSIONS</b></a> link in the top right nav menu.</p>
+                <p class="help-text">&bull; To the right of each repair request will be 2 buttons.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Details</button> will show you each session that has taken place for that request.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">New Session</button> will take you to a page where you can enter information for a new session.</p>
+                <p class="help-text">&bull; When the details have been revealed, there will be a button to the right of each session.
+                    <br>&nbsp;&nbsp;&nbsp;<button class="example-button">Edit</button> will take you to a page where you can edit that session's information.</p>
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" tabindex="8" onclick="history.back()">Return</a>
+					</li>
+				 </ul>
+			</nav>
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+</body> 
+</html>

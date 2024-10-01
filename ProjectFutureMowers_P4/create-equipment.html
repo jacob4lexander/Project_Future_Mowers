@@ -1,0 +1,235 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Create Equipment - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body onload="loadCustomerName()">
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="cu-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Customers &#8594; Customer Equipment List &#8594; Enter New Equipment</p>
+		</div>
+			<h2>Enter New Equipment</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" href="edit-enter-equipment-dropdown-menus.html">Edit Dropdown Menus</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="cu-container">
+				<table class="smalltable" style="border-collapse: collapse;">
+
+					<tr>
+						<td style="padding-top: 20px;">Serial #</td>
+						<td style="padding-top: 20px;">
+							<div class="floating-label-group">
+							<input class="eneinput" type="text" name="serialnumber" id="serial" title="Serial number input" required>
+							<label class="floating-label">123456</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Model #</td>
+						<td style="padding-top: 20px;">
+							<div class="floating-label-group">
+							<input class="eneinput" type="text" name="modelnumber" id="model" title="Model number input" required>
+							<label class="floating-label">123456</label>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Warranty</td>
+						<td style="padding-top: 20px;">
+							<input class="eneinput" type="checkbox" name="warranty" id="warranty" title="Warranty checkbox">
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;"><label for="inputDateReceived">Received Date</label></td>
+						<td style="padding-top: 20px;">
+							<input class="eneinput" type="datetime-local" id="inputDateReceived" name="datereceived" onfocus="defaultDate('inputDateReceived')" required>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Type</td>
+						<td style="padding-top: 20px;">
+							<select class="encddl" id="type" title="Equipment type selection dropdown menu">
+								<option value="" selected disabled>Not Selected</option>
+								<option value="Lawn Mower">Lawn Mower</option>
+								<option value="Weed Whacker">Weed Whacker</option>
+								<option value="Hedge Trimmer">Hedge Trimmer</option>
+								<option value="Auger">Auger</option>
+								<option value="Chainsaw">Chainsaw</option>
+								<option value="Other">Other</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Colour</td>
+						<td style="padding-top: 20px;">
+							<select class="encddl" id="colour" title="Colour selection dropdown menu">
+								<option value="" selected disabled>Not Selected</option>
+								<option value="White">White</option>
+								<option value="Black">Black</option>
+								<option value="Red">Red</option>
+								<option value="Green">Green</option>
+								<option value="Blue">Blue</option>
+								<option value="Yellow">Yellow</option>
+								<option value="Orange">Orange</option>
+								<option value="Grey">Grey</option>
+								<option value="Other">Other</option>
+							</select>
+						</td>
+					</tr>    
+					<tr>
+						<td style="padding-top: 20px;">Manufacturer</td>
+						<td style="padding-top: 20px;">
+							<select class="encddl" id="manufacturer" title="Manufacturer selection dropdown menu">
+								<option value="" selected disabled>Not Selected</option>
+								<option value="Honda">Honda</option>
+								<option value="Briggs and Stratton">Briggs and Stratton</option>
+								<option value="Generac">Generac</option>
+								<option value="Subaru">Subaru</option>
+								<option value="Kawasaki">Kawasaki</option>
+								<option value="Other">Other</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">First Name</td>
+						<td style="padding-top: 20px;"><input class="eneinput" id="customerFName" type="text" name="customerfname" title="Customer first name" readonly></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Last Name</td>
+						<td style="padding-top: 20px;"><input class="eneinput" id="customerLName" type="text" name="customerlname" title="Customer first name" readonly></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Email</td>
+						<td style="padding-top: 20px;"><input class="eneinput" id="customerEmail" type="text" name="customeremail" title="Customer first name" readonly></td>
+					</tr>	
+				</table>
+			</div>
+			<div class="row">
+				<div class="column">
+					<div class="reset-container">
+						<button type="reset">Reset</button>
+					</div>
+				</div>
+				<div class="column">
+					<div class="eq-submit-container">
+						<button name="btnSubmit" onclick="handleBtnSubmit()">Submit</button>
+					</div>
+				</div>
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+					</li>
+				 </ul>
+			</nav>
+			<button name="btnPreLoad" onclick="handleBtnPreLoad()">0</button>	
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+        function loadCustomerName(){
+			var custData = localStorage.getItem('customerData');
+
+        if (custData){
+
+            var customerData = JSON.parse(custData)
+
+            document.getElementById('customerFName').value = customerData.firstName;
+            document.getElementById('customerLName').value = customerData.lastName;
+			document.getElementById('customerEmail').value = customerData.email;
+
+            localStorage.setItem('equipmentData', JSON.stringify(customerData))
+			}
+		else
+		{
+			alert('Data failed')
+		}};
+		//QoL, make it so whenever the page is fully loaded, the received date is defaulted to todays date
+        document.addEventListener("DOMContentLoaded",function(){
+            defaultDate('inputDateReceived')
+        })
+        //https://tecadmin.net/get-current-date-time-javascript/ 
+        //gets the info passed to it, then sets the inputField to the date
+        function defaultDate(inputId) {
+            var inputField = document.getElementById(inputId); 
+
+            //date constructor allowing us to hold todays date
+            var date = new Date();
+
+            //current date is converted into string format, and then only the first 10 characters are extracted
+            // "YYYY-MM-DD" not taking hours/minutes because theres an offset of 5 hours or whatever it was. 
+            var currentDate = date.toISOString().slice(0,10);
+
+            //Then we get the hours and minutes. If the minutes is less than 10, add a zero before so it can format properly,
+            // Then adding the actual minutes to the end. 
+            var currentTime = date.getHours() + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+            // Adds the date and time, "T" acts as a delimeter so it is able to read the date properly.
+            inputField.value = currentDate + "T" + currentTime;
+        }
+
+		function handleBtnSubmit() {
+			window.location.href = 'customer.html';
+		}
+
+		function handleBtnPreLoad() {
+			document.getElementById('serial').value = '5433';
+			document.getElementById('model').value = '54332';
+			document.getElementById('type').value = 'Lawn Mower';
+			document.getElementById('colour').value = 'Red';
+			document.getElementById('manufacturer').value = 'Honda';
+		}
+    </script>
+</body> 
+</html>

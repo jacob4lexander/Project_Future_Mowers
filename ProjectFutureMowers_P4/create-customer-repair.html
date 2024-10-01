@@ -1,0 +1,155 @@
+
+TEST
+
+
+
+
+
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Create Repair - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+	  		<div class="column">
+				<h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+	  		</div>
+	  		<div class="column">
+			    <nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>	
+		  	</div>
+		</div>
+	</header>
+	<main>
+    <div class="spacer"></div>
+		<div class="cu-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Customers &#8594; Customer Equipment List &#8594; Create Repair</p>
+		</div>
+			<h2>Create Repair</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" href="edit-create-repair-dropdown-menus.html">Edit Dropdown Menus</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="cu-container">
+				<table class="smalltable" style="border-collapse: collapse;">
+					<tr>
+					   	<td style="padding-top: 20px;">Customer</td>
+					    <td style="padding-top: 20px;"><input type="text" id="customer" name="customer" title="Customer name" readonly></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Type</td>
+					    <td style="padding-top: 20px;"><input type="text" id="type" name="type" title="Equipment type" readonly></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Serial #</td>
+					    <td style="padding-top: 20px;"><input type="text" id="serialNumber" name="serialnumber" title="Serial number" readonly></td>
+					</tr>
+                    <tr>
+					    <td style="padding-top: 20px;">Service Type</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="crddl" title="Service type dropdown menu">
+								<option value="" selected disabled>Not Selected</option>
+						        <option value="Maintenance">Maintenance</option>
+						        <option value="Assembly">Assembly</option>
+						        <option value="Repair">Repair</option>
+						        <option value="Diagnose">Diagnose</option>
+						        <option value="Other">Other</option>
+      						</select>
+					    </td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Description</td>
+					    <td style="padding-top: 20px;"><textarea name="inputdescription" rows="6" class="textarearepair" title="Repair description input"></textarea></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Open Date</td>
+					    <td style="padding-top: 20px;"><input class="crdateopen" type="datetime-local" id="crinputDate" name="dateopen" title="Date the repair is opened" onfocus="defaultDate('inputDateReceived')"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Close Date</td>
+					    <td style="padding-top: 20px;"><input class="crdateclose" type="datetime-local" id="crinputDate1" name="datereceived" title="Date the repair is closed" onfocus="defaultDate('inputDateReceived')"></td>
+					</tr>
+				</table>
+			</div>
+				<div class="row">
+					<div class="column">
+						<div class="reset-container">	
+							<button type="reset">Reset</button>
+						</div>
+					</div>
+					<div class="column">
+						<div class="submit-container">
+							<button type="submit">Submit</button>
+						</div>
+					</div>
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+					</li>
+				 </ul>
+			</nav>	
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		//Retrieved Passed DATA (coming as JSON so needs to be parsed)
+		var repairData = localStorage.getItem('repairData')
+		
+		if(repairData){
+			//Turns data to an object so you can access the properties
+			var repairData = JSON.parse(repairData)
+
+			//Filling text boxes and the values with the object data/properties
+			document.getElementById('customer').value = repairData.customer;
+			document.getElementById('type').value = repairData.type;
+			document.getElementById('serialNumber').value = repairData.serialNumber;
+		}	
+		else
+		{
+			alert('Data failed')
+		}
+	</script>
+</body> 
+</html>

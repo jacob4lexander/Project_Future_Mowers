@@ -1,0 +1,192 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Create Session - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body onload="loadRepairData()">
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+    <div class="spacer"></div>
+		<div class="cu-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Repairs &#8594; Create Repair Session</p>
+		</div>
+			<h2>Create Repair Session</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" href="edit-repair-session-dropdown-menus.html">Edit Dropdown Menus</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="cu-container">
+				<table class="smalltable" style="border-collapse: collapse;">
+					<tr>
+						<td style="padding-top: 20px;"><label for="sessionCustomer">Customer</label></td>
+						<td style="padding-top: 20px;"><input type="text" id="sessionCustomer" name="sessionCustomer" title="Session customer" readonly></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;"><label for="sessionSerial">Serial #</label></td>
+						<td style="padding-top: 20px;"><input type="text" id="sessionSerial" name="sessionSerial" title="Session serial number" readonly>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;"><label for="sessionStart">Session Start Time</label></td>
+						<td style="padding-top: 20px;"><input class="eneinput" type="datetime-local" id="sessionStart" name="sessionStart" onfocus="defaultDate('sessionStart')"></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;"><label for="sessionEnd">Session End Time</label></td>
+						<td style="padding-top: 20px;"><input class="eneinput" type="datetime-local" id="sessionEnd" name="sessionEnd" onfocus="defaultDate('sessionEnd')"></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Session Notes</td>
+							<td style="padding-top: 20px;"><textarea name="inputdescription" rows="6" class="textarearepair" title="Repair description input"></textarea>
+						</td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Session Complete</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="crddl" title="Service type dropdown menu" id="sessionComplete">
+								<option value="" selected disabled>Not Selected</option>
+						        <option value="Yes">Yes</option>
+						        <option value="No">No</option>
+						        
+      						</select>
+					    </td>
+					</tr>
+                    <tr>
+					    <td style="padding-top: 20px;">Session Mechanic</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="crddl" title="Session Mechanic dropdown menu" id="sessionMechanic">
+								<option value="" selected disabled>Not Selected</option>
+						        <option value="Eugene">Eugene</option>
+						        <option value="Sarah">Sarah</option>
+      						</select>
+					    </td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Session Part</td>
+					    <td style="padding-top: 20px;">
+					    	<input type="search" name="Session Part Search Box" id="sessionPart" title="search box for part">
+							<button>Search</button>	
+					    </td>
+					</tr>
+					
+				</table>
+			</div>
+				<div class="row">
+					<div class="column">
+						<div class="reset-container">
+							<button type="reset">Reset</button>
+						</div>
+					</div>
+					<div class="column">
+						<div class="submit-container">
+							<button type="submit">Submit</button>
+						</div>
+					</div>
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+					</li>
+				 </ul>
+			</nav>	
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		function loadRepairData(){
+			var repData = localStorage.getItem('repairData');
+
+        if (repData){
+
+            var repairData = JSON.parse(repData)
+
+            document.getElementById('sessionCustomer').value = repairData.customer;
+            document.getElementById('sessionSerial').value = repairData.serialNumber;
+
+
+            localStorage.setItem('equipmentData', JSON.stringify(customerData))
+			}
+		else
+		{
+			alert('Data failed')
+		}};
+		
+		//Retrieved Passed DATA (coming as JSON so needs to be parsed)
+		/*var sessionData = localStorage.getItem('sessionData')
+		
+		if(sessionData){
+			//Turns data to an object so you can access the properties
+			var sessionData = JSON.parse(sessionData)
+			console.log(sessionData)
+
+			//Filling text boxes and the values with the object data/properties
+			document.getElementById('sessionStart').value = sessionData.sessionStart;
+			document.getElementById('sessionEnd').value = sessionData.sessionEnd;
+			document.getElementById('sessionComplete').value = sessionData.sessionComplete;
+			document.getElementById('sessionMechanic').value = sessionData.sessionMechanic;
+			document.getElementById('sessionPart').value = sessionData.sessionPart;
+
+			//Save changes, get text box values and overrite local storage //CANT OVERRIDE HTML BECAUSE HARD CODED !
+			document.getElementById('btnSubmit').addEventListener('click',function(){
+				sessionData.sessionStart= document.getElementById('sessionStart').value;
+                sessionData.sessionEnd= document.getElementById('sessionEnd').value;
+                sessionData.sessionComplete= document.getElementById('sessionComplete').value;
+                sessionData.sessionMechanic= document.getElementById('sessionMechanic').value;
+                sessionData.sessionPart= document.getElementById('sessionPart').value;
+                
+				//Update the local storage item back to json to be saved
+				localStorage.setItem('sessionData', JSON.stringify(sessionData))
+				//Return user to equipment main page
+				/*window.location.href = 'repair-session.html'*/
+			
+		
+	</script>
+</body> 
+</html>

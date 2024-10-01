@@ -1,0 +1,955 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #d1d1d1;
+	margin: 0px;
+	min-height: 100vh;	
+	background-image: url('../images/repairshop1.jpg');
+	display: flex;
+  	flex-direction: column;
+	min-width: 720px;
+}
+
+header {
+	margin: 0px;
+	box-sizing: border-box;
+	transition: all 0.0s ease 0s;
+  	background-color: rgba(0, 0, 0, 0.83);
+  	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  	padding: 5px 0;
+}
+
+#navigation{
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+}
+main{
+	margin-top: 100px;
+}
+
+footer {
+	margin-top: auto;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.83);
+  	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  	padding: 5px 0;
+}
+
+a {
+	cursor: pointer;
+}
+
+h1 {
+	font-size: 30px;
+	padding-left: 12px;
+	padding-top: 50px;
+	margin: 0px;
+	
+}
+
+h2 {
+	text-align: center;
+	font-size: 30px;
+	padding-top: 0px;
+	margin: 0px;
+	
+}
+
+h3 {
+	text-align: center;
+	font-size: 25px;
+	margin: 10px 0px;
+}
+
+h4 {
+	text-align: center;
+	font-size: 24px;
+	margin: 0px;
+}
+
+a:focus-visible {
+	outline: 2px dashed yellow;
+}
+
+input:focus-visible {
+	outline: 2px dashed yellow;
+  }
+
+select:focus-visible {
+	outline: 2px dashed yellow;
+  }
+  
+button:focus-visible {
+	outline: 2px dashed yellow;
+  }
+
+/*NAVIGATION MENU*/
+nav a {
+	color: #d1d1d1;
+}
+
+nav li {
+	display: inline-block;
+	padding: 0px 5px;
+	color: #d1d1d1;
+}
+
+ul {
+	text-align: center;
+	margin: 0px;
+	padding-top: 38px;
+}
+
+@media screen and (min-width: 720px) {
+	h1 {
+		font-size: 30px;
+		padding-left: 12px;
+		padding-top: 50px;
+		margin: 0px;
+	}
+}
+
+
+@media screen and (min-width: 930px) {
+	h1 {
+		padding-left: 12px;
+		padding-top: 50px;
+		margin: 0px;
+	}
+
+	ul {
+		text-align: center;
+
+	}
+}
+
+@media screen and (min-width: 995px) {
+	h1 {
+		font-size: 44px;
+		padding-left: 12px;
+		padding-top: 35px;
+		margin: 0px;
+	}
+
+	ul {
+		text-align: center;
+
+	}
+}
+
+@media screen and (min-width: 1298px) {
+	ul {
+		padding-top: 65px;
+	}
+}
+
+@media screen and (min-width: 1350px) {
+	ul {
+		text-align: right;
+		padding-right: 10px;
+	}
+}
+
+th, tr {
+	
+	font-size: 18px;
+}
+
+td {
+	color: #d1d1d1
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+  }
+
+input {
+	background-color : #d1d1d1;
+}
+
+select {
+	background-color : #d1d1d1;
+	color: black;
+	font-size: 18px; 
+}
+
+input[type="text"], textarea {
+	background-color : #d1d1d1;
+	font-size: 18px; 
+  }
+
+tr:nth-child(even) {
+	background-color: rgba(42, 42, 42, 0.83);
+  }
+
+button {
+	font-size: 18px;
+}
+
+table {
+	margin: auto;
+}
+
+.table-display {
+	font-weight: 400;
+	color:#d1d1d1;
+	font-size: 20px;
+}
+
+.cel-top-table {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.crdateopen {
+	background-color: #d1d1d1;
+	min-width: 222px;
+	font-size: 16px;
+}
+
+.crdateclose {
+	background-color: #d1d1d1;
+	min-width: 222px;
+	font-size: 16px;
+}
+
+.row {
+	display: flex;
+  }
+  /*Emmas Small Engine - Customer part*/
+  .row h2{
+	  margin-left: 10px;
+	  margin-top: 40px;
+  }
+  /*Used to change the style of Emma's SmalL Engine href*/
+  .nav-link-home a{
+	color: #d1d1d1;
+
+  }
+
+/****CLASSES****/ 
+
+.help-page {
+	padding: 10px;
+}
+
+.help-text {
+	font-size: 18px;
+	margin: 10px 0px;
+}
+
+.help-titles {
+	text-align: left;
+	font-size: 28px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.example-button {
+	margin: 8px;
+}
+
+.nav-link {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#help-nav-links {
+	color: #d1d1d1;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0aa6bd;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+.nav-item:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.nav-item {
+  position: relative;
+  padding: 0px;
+  margin-right: 10px;
+}
+
+.column {
+  flex: 50%;
+  padding-bottom: 3px;
+  height: 85px;
+}
+
+.spacer {
+	height: 50px;
+}
+
+.move-type-input-right {
+	padding-left: 62px;
+}
+
+.move-equipment-ddm-input-right {
+	padding-left: 62px;
+}
+
+.cu-shaded-rec {
+  	height: auto;
+  	background-color: rgba(0, 0, 0, 0.83);
+  	margin: auto;
+  	width: 55%;
+  	border-radius: 10px;
+	min-width: 577px;
+	max-width: 577px;
+}
+
+.r-shaded-rec {
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.83);
+	margin: auto;
+	width: 80%;
+	border-radius: 10px;
+	min-width: 1100px;
+	max-width: 1100px;
+	padding: 5px;
+  }
+
+.help-shaded-rec {
+	height: 720px;
+	background-color: rgba(0, 0, 0, 0.83);
+	margin: auto;
+	width: 80%;
+	border-radius: 10px;
+	min-width: 720px;
+	max-width: 980px;
+	padding: 5px;
+  }
+
+.r-shaded-rec-eq{
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.83);
+	margin: auto;
+	width: 80%;
+	border-radius: 10px;
+	min-width: 720px;
+	max-width: 1320px;
+	padding: 5px;
+}
+
+.r-shaded-rec-rep {
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.83);
+	margin: auto;
+	width: 80%;
+	border-radius: 10px;
+	min-width: 720px;
+	max-width: 1086px;
+	padding: 5px;
+}
+
+.r-shaded-rec-rep2 {
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.83);
+	margin: auto;
+	width: 80%;
+	border-radius: 10px;
+	min-width: 720px;
+	max-width: 875px;
+	padding: 5px;
+}
+
+.r-shaded-ses {
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.83);
+	margin: auto;
+	width: 80%;
+	border-radius: 10px;
+	min-width: 720px;
+	max-width: 1076px;
+	padding: 5px;
+}
+
+.edm-shaded-rec {
+	height: auto;
+  	background-color: rgba(0, 0, 0, 0.83);
+  	margin: auto;
+  	width: 55%;
+  	border-radius: 10px;
+	min-width: 720px;
+	max-width: 720px;
+}
+
+.preview-shaded-rec {
+	height: auto;
+  	background-color: rgba(0, 0, 0, 0.83);
+  	margin: auto;
+  	min-width: 1000px;
+	max-width: 1000px;
+  	border-radius: 10px;
+}
+
+.cu-container {
+	margin-top: 50px;
+	margin: auto;
+	width: auto;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.homepage-info-section {
+	text-align: center;
+	padding: 10px;
+	margin: 25px;
+}
+
+.preview-job-info {
+	text-align: center;
+}
+
+.rep-button-container {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.preview-manufacturer {
+	text-align: center;
+	font-size: 24px;
+	margin: 0px;
+}
+
+.report-title {
+	padding-top: 15px;
+	text-decoration: underline;
+	font-size: 32px;
+}
+
+.report-meta-data {
+	text-align: left;
+	font-size: 18px;
+	font-weight: bold;
+
+}
+
+.preview-container {
+	height: auto;
+  	margin: auto;
+  	width: auto;
+	padding-top: 15px;
+  	border-radius: 10px;
+	text-align: center;
+}
+
+.edit-dropdowns-container {
+	margin-top: 50px;
+	margin: auto;
+	width: 60%;
+}
+
+.button-container {
+	margin: auto;
+	text-align: center;
+  	width: 55%;
+}
+
+.link-center {
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 25px;
+	padding-left: 0px;
+}
+
+.submit {
+	padding-top: 50px;
+}
+
+.edit-dropdown-table {
+	width: 100%;
+}
+
+.reset-container {
+	text-align: center;
+	padding-top: 20px;
+	padding-left: 50px;
+}
+
+.submit-container {
+	text-align: center;
+	padding-top: 20px;
+	padding-right: 59px;
+}
+
+.eq-submit-container {
+	text-align: center;
+	padding-top: 20px;
+	padding-right: 25px;
+}
+
+.edit-ddm-submit-container {
+	text-align: center;
+	padding-top: 20px;
+	padding-right: 62px;
+}
+
+.rep-submit-container {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.repairtitle {
+	margin: auto;
+	padding: 10px;
+}
+
+/*Make all fields same width*/
+.encddl {
+	min-width: 252px;
+}
+
+.encinput {
+	min-width: 244px;
+}
+
+.encddl {
+	min-width: 235px;
+}
+
+.eneinput {
+	min-width: 227px;
+}
+
+.cdmddl {
+	min-width: 252px;
+}
+
+.cdm-edit {
+	min-width: 170px;
+}
+
+.wro-input {
+	font-size: 18px;
+}
+
+/*TEXT PLACEHOLDER LABEL / CSS */
+.floating-label-group {
+	position: relative;
+	margin-top: 9px;
+}
+
+.floating-label-group .floating-label { /*IN TEXT CSS */
+	font-size: 18px;
+	color: #8c8c8c;
+	position: absolute;
+	pointer-events: none;
+	top: 0px;
+	left: 5px;
+	transition: all 0.1s ease;
+}
+
+.floating-label-group input:focus ~ .floating-label, /*FLOATING TEXT CSS*/
+.floating-label-group input:not(:focus):valid ~ .floating-label {
+	top: -25px;
+	bottom: 0;
+	left: 0;
+	font-size: 18px;
+	opacity: 1;
+	color: #0aa6bd;
+}
+
+.ecinput {
+	min-width: 244px;
+}
+
+
+.ecddl {
+	min-width: 252px;
+}
+
+.edmddl {
+	min-width: 179px;
+}
+
+.edm-edit {
+	min-width: 196px;
+}
+
+.eeddl {
+	min-width: 227px;
+}
+
+.crddl {
+	min-width: 226px;
+}
+
+.rpm-edit {
+	min-width: 170px;
+}
+
+.smalltable {
+	border:  1px solid #d1d1d1;
+}
+
+.largetable {
+	border-top:  1px solid #d1d1d1;
+	border-bottom:  1px solid #d1d1d1;
+	border-spacing: 0;
+	white-space: nowrap;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.textarearepair {
+	min-width: 221px;
+	resize:vertical;
+}
+
+.bread {
+	padding-left: 5px;
+}
+
+
+.bread1 {
+	padding-left: 5px;
+	font-size: 12px;
+}
+
+/*TEST STYLES*/
+#displayData h2{
+	text-align: left;
+	margin-left: 5%;
+}
+
+#dataList{
+	display: flex;
+	text-align: left;
+	margin-left: 5%;
+	list-style: none;
+	padding: 0;
+}
+
+#dataList li {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+#dataList button{
+	margin-right: 5%;
+}
+
+.edit-link {
+	text-align: left;
+	margin: 0px;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 11px;
+	color: #d1d1d1
+}
+
+
+
+/*css for new customer table, would share amongst other layouts as well.*/
+/*can be found in link style sheet at top for jquery data tables css.*/
+
+/*Letting users know youre able to sort*/
+table.dataTable thead th {
+	cursor: pointer;
+  }
+  table.dataTable thead th:hover {
+	background-color: rgba(0, 0, 0, 0.83);
+  }
+
+  table.dataTable thead th {
+	position: relative;
+  }
+  /*Sorting Effects*/
+  table.dataTable thead th:hover::after {
+	content: "Sort";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #333;
+	color: #fff;
+	padding: 0.5em;
+	border-radius: 4px;
+	white-space: nowrap;
+  }
+
+  /*Sorting effects for the column that contains details/edit*/
+  table.dataTable thead th.notSortable {
+	cursor: default; 
+  }
+  
+  table.dataTable thead th.notSortable:hover {
+	background-color: transparent; 
+  }
+  
+  table.dataTable thead th.notSortable::after {
+	content: "";
+	background-color: transparent;
+  }
+
+/*Search Bar*/
+.dataTables_filter {
+	padding-top: 10px;
+	padding-bottom: 10px;
+  }
+
+.dataTables_length select option[value="5"]
+
+/*Show Entries*/
+.dataTables_length{
+	color: initial; /*place holder*/
+}
+
+/*Show Enteries Label*/
+.dataTables_length label {
+	color: #d1d1d1; 
+	font-size: 18px; 
+  }
+
+/*Select Portion of entries*/
+.dataTables_length select {
+  color: initial; /*place holder*/
+}
+
+/* Paging Stuff */
+.dataTables_paginate {
+	color: #d1d1d1; 
+	font-size: 18px; 
+	overflow: hidden;
+  }
+
+  /*Paging a links*/
+.dataTables_paginate a {
+	color: #0aa6bd; 
+  }  
+
+.dataTables_paginate a:hover {
+	text-decoration: underline; /*Underline affect, pointer too */
+	cursor: pointer;
+  }
+
+
+
+.dataTables_paginate .paginate_button {
+    margin-right: 8px; /*PAGING NUMBERS!*/
+	border: 1px solid;
+	background-color: #f0f0f0;
+	border-color: #333;
+	border-radius: 2px;
+	color: black;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	display: inline-block;
+	padding: 1px 3px;
+}
+
+.custAddr{
+	margin-left: 50px;
+}
+
+/*Table data */
+.TDdetails{
+	display: flex;
+	font-weight: bold;
+
+}
+.TDdetails 
+.TDdetails dd{
+    margin-right: 30%;
+    box-sizing: border-box;
+	text-align:justify;
+}
+
+/*TAB TESTING*/
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border-bottom: 1px solid #d1d1d1;
+	text-align: center;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+	background-color: inherit;
+	border: 1px solid #d1d1d1;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 18px;
+	color: #d1d1d1;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+	background-color: rgba(42, 42, 42, 0.83);
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+	display: none;
+	border-top: none;
+  }
+
+/*TOOLTIP TESTING - From W3Schools*/
+/* Tooltip container */
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+	visibility: hidden;
+	font-size: 18px;
+	font-weight: 400;
+	width: 400px;
+	bottom: 100%;
+  	left: 50%;
+ 	 margin-left: -60px;
+  	margin-left: -60px;
+	background-color: rgba(42, 42, 42, 1);
+	color: d1d1d1;
+	text-align: left;
+	padding: 5px 0;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px;
+   
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+  }
+
+  /*Login Page*/
+/* Login Page */
+.logoDesign {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    box-sizing: border-box;
+}
+
+.logoDesign form {
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+.logoDesign form * {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #d1d1d1;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.logoDesign form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.logoDesign label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.logoDesign input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.logoDesign button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+  }
+
+ /*DEFAULT DATE FORMATTING*/ 
+  #inputDateReceived, #crinputDate, #warRepDateStart, #warRepDateEnd,
+  #secRepDateStart, #secRepDateEnd, #finRepDateStart, #finRepDateEnd,
+  #warRepDateRan, #inputDateDeparture {
+	font-size: 17px;
+}
+
+/*input[type=checkbox]
+{
+Double-sized Checkboxes 
+  -ms-transform: scale(2); 
+  -moz-transform: scale(2); 
+  -webkit-transform: scale(2); 
+  -o-transform: scale(2); 
+  transform: scale(2);
+  padding: 10px;
+}
+
+/*Login Buttons*/
+.loginButtons {
+    margin-top: 20px; /* Adjust margin */
+    display: flex;
+    justify-content: center; /* Align buttons to the right */
+}
+
+.loginButtons button {
+	margin-top: 100px;
+    margin-left: 15px; /* Add spacing between buttons if needed */
+	font: bold;
+	background-color: #ffffff;
+	font-weight: 600;
+    color: #080710;
+    border-radius: 5px;
+    cursor: pointer;
+	border-color: transparent;
+}
+

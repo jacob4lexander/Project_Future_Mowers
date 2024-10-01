@@ -1,0 +1,390 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Repair Sessions - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body onload="tableLoadUp()">
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="r-shaded-rec-rep">
+			<h2>Repair Requests / Sessions</h2>
+			<div class="tab">
+				<button class="tablinks" onclick="openSelectedTab(event, 'open-tab')">Open</button>
+				<button class="tablinks" onclick="openSelectedTab(event, 'closed-tab')">Closed</button>
+			  </div>
+			  <div id="open-tab" class="tabcontent">
+				<h3>Open Repair Requests</h3>
+				<div style="overflow-x:auto;">
+				<table id="dataTable" class="largetable"  >	
+					<thead>
+					<tr>
+						<th>Customer</th>
+						<th>Type</th>
+						<th>Serial #</th>
+						<th>Service Type</th>
+						<th>Description</th>
+						<th>Opened Date</th>
+						<th class="notSortable"></th>
+					</tr>
+					</thead>
+					<tr>
+						<td>Alejandro Howell</td>
+						<td>Lawn Mower</td>
+						<td>5433</td>
+						<td>Repair</td>
+						<td>Pull Cord has snapped.</td>
+						<td>11 Dec 2023</td>
+						<td>
+							<button name="btnDetails" id="btnDetails4" onclick="handleBtnHistory()">History</button>
+							<button name="btnSession" onclick="handleBtnNewSession()">New Session</button>
+						</td>
+					</tr>
+					<tr>
+						<td>William Riker</td>
+						<td>Lawn Mower</td>
+						<td>87656</td>
+						<td>Repair</td>
+						<td>Rotor blade snapped off.</td>
+						<td>20 Sep 2023</td>
+						<td>
+							<button name="btnDetails" id="btnDetails4" onclick="handleBtnHistory()">History</button>
+							<button name="btnSession" onclick="handleBtnNewSession()">New Session</button>
+						</td>
+					</tr>
+					<tr>
+						<td>William Riker</td>
+						<td>Lawn Mower</td>
+						<td>87656</td>
+						<td>Repair</td>
+						<td>Pull cord frayed.</td>
+						<td>20 Sep 2023</td>
+						<td>
+							<button name="btnDetails" id="btnDetails4" onclick="handleBtnHistory()">History</button>
+							<button name="btnSession" onclick="handleBtnNewSession()">New Session</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Hal Johnson</td>
+						<td>Weed Whacker</td>
+						<td>78364</td>
+						<td>Maintenance</td>
+						<td>Respool cutting cord.</td>
+						<td>04 Oct 2023</td>
+						<td>
+							<button name="btnDetails" id="btnDetails4" onclick="handleBtnHistory()">History</button>
+							<button name="btnSession" onclick="handleBtnNewSession()">New Session</button>
+						</td>
+					</tr>	
+				</table>
+				</div>
+			  </div>
+			  <div id="closed-tab" class="tabcontent">
+				<h3>Closed Sessions</h3>
+				<div style="overflow-x:auto;">
+					<table id="dataTable2" class="largetable">
+						<thead>
+						<tr>
+							<th>Customer</th>
+							<th>Type</th>
+							<th>Serial #</th>
+							<th>Service Type</th>
+							<th>Description</th>
+							<th>Opened Date</th>
+							<th>Closed Date</th>
+							<th>Cost</th>
+							<th class="notSortable"></th>
+						</tr>
+						</thead>
+						<tr>
+							<td>Alejandro Howell</td>
+							<td>Lawn Mower</td>
+							<td>5433</td>
+							<td>Repair</td>
+							<td class="hideDesc"><b><u>Session 1</u></b> <br> <b>Date:</b> September 23 <br><b>Start Tme:</b> 8:30 AM <br><b>End Time:</b> 9:00PM <br> <b>Work:</b> Sharpened Rotor Blades <br> <b>Technician:</b> Eugene <br>
+												 <b><u>Session 2</u></b> <br> <b>Date:</b> September 24 <br><b>Start Tme:</b> 9:30 AM <br><b>End Time:</b> 11:00PM<br>  <b>Work:</b> Replaced spark plugs <br> <b>Technician:</b> Sarah </td>
+							<td>11 Dec 2023</td>
+							<td>11 Dec 2023</td>
+							<td>$90.50</td>
+							<td>
+								<button name="btnDetails" id="btnDetails1" onclick="handleBtnDetails2(this)">Details</button>
+							</td>
+						</tr>
+						<tr>
+							<td>Sarah Miller</td>
+							<td>Auger</td>
+							<td>78365</td>
+							<td>Assembly</td>
+							<td class="hideDesc"><b><u>Session 1</u></b> <br> <b>Date:</b> September 23 <br><b>Start Tme:</b> 8:30 AM <br><b>End Time:</b> 9:00PM <br> <b>Work:</b> Sharpened Rotor Blades <br> <b>Technician:</b> Eugene <br>
+												 <b><u>Session 2</u></b> <br> <b>Date:</b> September 24 <br><b>Start Tme:</b> 9:30 AM <br><b>End Time:</b> 11:00PM <br> <b>Work:</b> Replaced spark plugs <br> <b>Technician:</b> Sarah </td>
+							<td>15 Sep 2023</td>
+							<td>16 Sep 2023</td>
+							<td>$55.61</td>
+							<td>
+								<button name="btnDetails" id="btnDetails2" onclick="handleBtnDetails2(this)">Details</button>
+							</td>
+						</tr>
+						<tr>
+							<td>Eric Brown</td>
+							<td>Weed Whacker</td>
+							<td>18364</td>
+							<td>Repair</td>
+							<td class="hideDesc"><b><u>Session 1</u></b> <br> <b>Date:</b> October 5 <br><b>Start Tme:</b> 8:30 AM <br><b>End Time:</b> 10:00PM <br> <b>Work:</b> Diagnosed issues <br> <b>Technician:</b> Eugene <br>
+												 <b><u>Session 2</u></b> <br> <b>Date:</b> October 6 <br><b>Start Tme:</b> 10:30 AM <br><b>End Time:</b> 12:00PM <br> <b>Work:</b> Replaced PCB <br> <b>Technician:</b> Sarah <br>
+												 <b><u>Session 3</u></b> <br> <b>Date:</b> October 7 <br><b>Start Tme:</b> 9:30 AM <br><b>End Time:</b> 11:00PM <br> <b>Work:</b> Replaced Wiring <br> <b>Technician:</b> Sarah</td>
+							<td>07 Oct 2023</td>
+							<td>07 Oct 2023</td>
+							<td>$76.27</td>
+							<td>
+								<button name="btnDetails" id="btnDetails3" onclick="handleBtnDetails2(this)">Details</button>
+							</td>
+						</tr>
+					</table>
+				</div>	
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-dark">
+					<ul class="link-center">
+						<li class="nav-item active">
+							<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+						</li>
+					 </ul>
+				</nav>
+		</div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		function tableLoadUp(){
+			openSelectedTab(event, 'open-tab');
+		}
+
+		function format(d){
+			return(
+				'<dl class="largetable">' +
+        	'<dt>Session History:</dt>' +
+        	'<dd>' + 'Eugene - 10 Dec 2023 - 11:00am to 12:00pm: Disassembled unit and began diagnosis. ' + '</dd>' +
+
+        	'</dl>'
+			)
+		}
+
+		// Code for the Open tab datatable.
+		$(document).ready(function() {
+				
+				var custData = localStorage.getItem('customerData');
+
+				var customerData = JSON.parse(custData);
+				let firstName = customerData.firstName;
+				let lastName = customerData.lastName;
+				let searchString = firstName + " " + lastName;
+
+				// Initialize DataTable - similar to line 20 of the link above instead of using a json file it refers to the html DT
+				let table = $('#dataTable').DataTable({
+				order: [[0, 'asc']], //
+				paging: true, //Enable pagination
+				searching: true, //Enable searching
+				search: {
+					// Empty for pitch demo.
+				},
+				responsive: true, //Enable responsive design
+				//Looks at all the columns and sets the orderable functionality to false on the specified target
+				//using -1 meaning the last item in the column list which is the edit button
+				columnDefs:[
+					
+				],
+				lengthMenu: [
+				[5, 10, 25, -1],
+				[5, 10, 25, 'All']]
+			})
+
+			function handleBtnDetails(btn){
+				//gets the button with its associated row
+				var clickedRow = btn.closest('tr');
+				//Datable method that allows access to that row and to be able to edit it 
+				var row = table.row(clickedRow); 
+
+				if(row.child.isShown()){
+					row.child.remove();
+					clickedRow.find('.hideDesc').toggle();
+				}else{
+					row.child(format(row.data())).show();
+					clickedRow.find('.hideDesc').toggle();
+				}
+				var streetColumn = table.column(4);
+				streetColumn.visible(!streetColumn.visible());
+			}
+				//Event listener on the customer table waits for a click on the btn details then the function runs
+				$('#dataTable tbody').on('click', 'button[name="btnDetails"]', function() {
+					handleBtnDetails(this); //this sends the info on the button (td/tr)
+				});
+
+				
+			});
+
+			function handleBtnNewSession() {
+					window.location.href = 'create-session.html';
+				}
+
+		// Code for the Closed tab datatable.
+		$(document).ready(function() {
+
+			var custData = localStorage.getItem('customerData');
+
+				var customerData = JSON.parse(custData);
+				let firstName = customerData.firstName;
+				let lastName = customerData.lastName;
+				let searchString = firstName + " " + lastName;
+			
+			// Initialize DataTable - similar to line 20 of the link above instead of using a json file it refers to the html DT
+			let table = $('#dataTable2').DataTable({
+			order: [[0, 'asc']], //
+			paging: true, //Enable pagination
+			searching: true, //Enable searching
+			search: {
+				// Empty for pitch demo.
+			},
+			responsive: true, //Enable responsive design
+			//Looks at all the columns and sets the orderable functionality to false on the specified target
+			//using -1 meaning the last item in the column list which is the edit button
+			columnDefs:[
+				{orderable:false, targets: -1},
+				{visible:false, targets:4} //hides the description!!
+			]
+			})
+
+		function handleBtnDetails2(btn){
+			//gets the button with its associated row
+			var clickedRow = btn.closest('tr');
+			//Datable method that allows access to that row and to be able to edit it 
+			var row = table.row(clickedRow); 
+
+			if(row.child.isShown()){
+				row.child.remove();
+				clickedRow.find('.hideDesc').toggle();
+			}else{
+				row.child(format(row.data())).show();
+				clickedRow.find('.hideDesc').toggle();
+			}
+			var streetColumn = table.column(4);
+			streetColumn.visible(!streetColumn.visible());
+		}
+
+		
+
+			//Event listener on the customer table waits for a click on the btn details then the function runs
+			$('#dataTable2 tbody').on('click', 'button[name="btnDetails"]', function() {
+				handleBtnDetails2(this); //this sends the info on the button (td/tr)
+			});
+		});
+			
+
+		function handleBtnEdit(button){
+			//button brings all the attributes
+			//store name
+			var buttonName = button.name;
+			
+			//store btnID for future use 
+			var btnId = button.id;
+
+			//Gets the button with its associated table row
+			var clickedRow = button.closest('tr');
+
+			//gets the instance of customerTable
+			let table = $('#dataTable').DataTable(); //ai generated
+			//Acessing rowdata using the api
+			let rowData = table.row(clickedRow).data(); // ai generated
+
+			//ai changed row.cells to row data (took note of it)
+			var sessionCustomer = rowData[0];
+			var sessionSerial = rowData[1];
+			var sessionStartTime = rowData[2];
+            var sessionEndTime = rowData[3];
+			var sessionNotes = rowData[4];
+            var sessionComplete = rowData[5];
+            var sessionMechanic = rowData[6];
+            var sessionPart = rowData[7];
+			
+			//Convert to JSON to store to local storage
+			var sessionData = {
+				sessionCustomer: sessionCustomer,
+				sessionSerial: sessionSerial,
+				sessionStartTime: sessionStartTime,
+				sessionEndTime: sessionEndTime,
+				sessionNotes: sessionNotes,
+				sessionComplete: sessionComplete,
+				sessionMechanic: sessionMechanic,
+				sessionPart: sessionPart
+			}
+		
+			//Storing to local storage
+			var sessionJSON = JSON.stringify(sessionData)
+			//Stores the name as equipmentData in local storage
+			localStorage.setItem('sessionData', sessionJSON)
+			// INSPECT => PRESS >> => Application => Local Storage => file:// => Under Key Equipment Data
+			//Then send user to edit page
+			window.location.href = 'edit-session.html';
+		}
+
+		
+		// Looked on W3Schools to find how to create a table with 2 separate tabs.
+		function openSelectedTab(evt, tabName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(tabName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+		
+	</script>
+</body> 
+</html>

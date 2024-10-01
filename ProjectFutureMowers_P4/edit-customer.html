@@ -1,0 +1,197 @@
+<!DOCTYPE HTML> 
+<html lang="en">
+<head> 
+<meta charset="utf-8"> 
+<title>Edit Customer - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="cu-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Customers &#8594; Edit Customer</p>
+		</div>
+			<h2>Edit Customer</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" href="edit-customer-dropdown-menus.html">Edit Dropdown Menus</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="cu-container">
+				<table class="smalltable" style="border-collapse: collapse;">
+					<tr>
+					   	<td style="padding-top: 20px;">First Name</td>
+					    <td style="padding-top: 20px;"><input class="ecinput" type="text" id="inputfname" name="inputfname" title="First name input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Last Name</td>
+					    <td style="padding-top: 20px;"><input class="ecinput" type="text" id="inputlname" name="inputlname" title="Last name input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Email</td>
+					    <td style="padding-top: 20px;"><input class="ecinput" type="text" id="inputemail" name="inputemail" title="Email address input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Phone</td>
+					    <td style="padding-top: 20px;"><input class="ecinput" type="text" id="inputphone" name="inputphone" title="Phone number input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Street</td>
+					    <td style="padding-top: 20px;"><input class="ecinput" type="text" id="inputstreet" name="inputstreet" title="Street address input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Postal Code</td>
+					    <td style="padding-top: 20px;"><input class="ecinput" type="text" id="inputpostal" name="inputpostal" title="Postal code input"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">City</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="ecddl" id="selectCity" title="City selection dropdown menu">
+								<option value="" selected disabled>Not Selected</option>
+						        <option value="St. Catharines">St. Catharines</option>
+						        <option value="Welland">Welland</option>
+						        <option value="Niagara Falls">Niagara Falls</option>
+						        <option value="Fort Erie">Fort Erie</option>
+						        <option value="Thorold">Thorold</option>
+						        <option value="Port Colbourne">Port Colbourne</option>
+						        <option value="NOTL">NOTL</option>
+						        <option value="Other">Other</option>
+      						</select>
+					    </td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Province</td>
+					    <td style="padding-top: 20px;">
+					    	<select id="selectProvince" title="Province selection dropdown menu">
+								<option value="" selected disabled>Not Selected</option>
+						        <option value="Alberta">Alberta</option>
+						        <option value="British Columbia">British Columbia</option>
+						        <option value="Manitoba">Manitoba</option>
+						        <option value="New Brunswick">New Brunswick</option>
+						        <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+						        <option value="Northwest Territories">Northwest Territories</option>
+						        <option value="Nova Scotia">Nova Scotia</option>
+						        <option value="Nunavut">Nunavut</option>
+						        <option value="Ontario">Ontario</option>
+						        <option value="Prince Edward Island">Prince Edward Island</option>
+						        <option value="Quebec">Quebec</option>
+						        <option value="Saskachewan">Saskachewan</option>
+						        <option value="Yukon">Yukon</option>
+      						</select>
+					    </td>
+					</tr>
+				</table>
+			</div>
+				<div class="row">
+					<div class="column">
+						<div class="reset-container">
+							<button type="reset" onclick="resetForms()">Reset</button>
+						</div>
+					</div>
+					<div class="column">
+						<div class="submit-container">
+							<button type="submit" onclick="handleBtnSubmit()">Submit</button>
+						</div>
+					</div>
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-dark">
+					<ul class="link-center">
+						<li class="nav-item active">
+							<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+						</li>
+					 </ul>
+				</nav>	
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		//Retrieved Passed DATA (coming as JSON so needs to be parsed)
+		var custData = localStorage.getItem('customerData')
+		
+		if(custData){
+			//Turns data to an object so you can access the properties
+			var customerData = JSON.parse(custData)
+
+			//Filling text boxes and the values with the object data/properties
+			document.getElementById('inputfname').value = customerData.firstName;
+			document.getElementById('inputlname').value = customerData.lastName;
+			document.getElementById('inputemail').value = customerData.email;
+			document.getElementById('inputphone').value = customerData.phone;
+			document.getElementById('inputstreet').value = customerData.street;
+			document.getElementById('inputpostal').value = customerData.postalCode
+			document.getElementById('selectCity').value = customerData.city;
+			document.getElementById('selectProvince').value = customerData.province;
+
+			//Update the local storage item back to json to be saved
+			localStorage.setItem('equipmentData', JSON.stringify(equipmentData))
+			}
+		else
+		{
+
+		}
+
+		/*Resetting forms*/
+		function resetForms(){
+			//Filling text boxes and the values with the object data/properties
+			document.getElementById('inputfname').value = "";
+			document.getElementById('inputlname').value = "";
+			document.getElementById('inputemail').value = "";
+			document.getElementById('inputphone').value = "";
+			document.getElementById('inputstreet').value = "";
+			document.getElementById('inputpostal').value = ""
+			document.getElementById('selectCity').value = "";
+			document.getElementById('selectProvince').value = "";
+		}
+
+		function handleBtnSubmit() {
+			window.location.href="customer.html";
+		}
+	</script>
+</body> 
+</html>

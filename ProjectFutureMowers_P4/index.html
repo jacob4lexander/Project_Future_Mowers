@@ -1,0 +1,78 @@
+<!DOCTYPE HTML> 
+<html lang="en">
+<head> 
+<meta charset="utf-8"> 
+<title>Emma's Small Engines Home</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+					
+			          	<li class="nav-item" id="custLink">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						<li class="nav-item" id="repairLink">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+					  <li class="nav-item" id="sesLink">
+						  <a class="nav-link" href="repair-session.html" tabindex="5">Session</a>
+					  </li>
+					  <li class="nav-item" id="repLink">
+						<a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+					</li>
+					  <li class="nav-item">
+						<a class="nav-link" href="login.html" tabindex="7">login</a>
+					</li>
+				  </ul>
+			  </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="r-shaded-rec">
+			<h2>Homepage Info</h2>
+			<div class="homepage-info-section">
+				<p>This part of the page can be filled with whatever information you like. Such as messages to staff, dates, images, etc.</p>
+			</div>
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var loginValue = localStorage.getItem('loginValue');
+
+			if(loginValue === 'admin'){
+
+			}
+			else if (loginValue === 'sales'){
+				document.getElementById('repLink').style.display = 'none';
+				document.getElementById('sesLink').style.display = 'none';
+			}
+			else if (loginValue === 'technician'){
+				document.getElementById('custLink').style.display = 'none';
+				document.getElementById('repairLink').style.display = 'none';
+				document.getElementById('repLink').style.display = 'none';
+
+			}
+		});
+	</script>
+</body> 
+</html>

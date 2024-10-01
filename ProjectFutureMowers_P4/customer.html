@@ -1,0 +1,611 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Customer - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+		<div class="spacer"></div>
+		<div class="r-shaded-rec">
+			<h2>Customer List</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+			        <li class="nav-item active">
+			            <a class="nav-link" href="create-customer.html">Enter New Customer</a>
+			        </li>
+			    </ul>
+			</nav>
+			<div style="overflow-x:auto;">
+				<table id="customerTable" class="largetable">
+					<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Street</th>
+						<th>Postal Code</th>
+						<th>City</th>
+						<th>Province</th>
+						<th class="notSortable"></th>
+					</tr>
+
+					</thead>
+					<tr>
+						<td>Hal</td>
+						<td>Johnson</td>
+						<td>hjohnson@bodybreak.com</td>
+						<td>905-443-5555</td>
+						<td class="custAddr">34 Brightside Dr</td>
+						<td class="custPost">N3U1J2</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails1" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit1" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEQ" id="btnEqpt1" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Joanne</td>
+						<td>McCloud</td>
+						<td>jmccloud@bodybreak.com</td>
+						<td>905-443-5555</td>
+						<td class="custAddr">34 Brightside Dr</td>
+						<td class="custPost">N3U1J2</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails2" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit2" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEQ" id="btnEqpt2" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>William</td>
+						<td>Riker</td>
+						<td>thesaxman@enterprise.fed</td>
+						<td>746-987-7676</td>
+						<td class="custAddr">Red Alert Ln</td>
+						<td class="custPost">H3N8U7</td>
+						<td class="custCity">Thorold</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails3" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit3" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt3" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Eric</td>
+						<td>Brown</td>
+						<td>eric99@hotmail.com</td>
+						<td>989-765-1122</td>
+						<td class="custAddr">324 Pepperridge Rd</td>
+						<td class="custPost">N1A1W4</td>
+						<td class="custCity">Niagara Falls</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails4" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit4" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt4" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Sarah</td>
+						<td>Miller</td>
+						<td>Mil42@gmail.com</td>
+						<td>905-386-0089</td>
+						<td class="custAddr">1 Princeton Blvd</td>
+						<td class="custPost">H4F2N7</td>
+						<td class="custCity">NOTL</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails5" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit5" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt5" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Tamsin</td>
+						<td>Donnelly</td>
+						<td>tdonnelly@outlook.com</td>
+						<td>905-999-7876</td>
+						<td class="custAddr">33 Red Maple St</td>
+						<td class="custPost">N7G0U7</td>
+						<td class="custCity">Fort Erie</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails6" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit6" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt6" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Nina</td>
+						<td>Winters</td>
+						<td>admin@lawnexperts.ca</td>
+						<td>232-676-8891</td>
+						<td class="custAddr">773 Poplar Ave</td>
+						<td class="custPost">A5AN3M</td>
+						<td class="custCity">Wainwright</td>
+						<td>Alberta</td>
+						<td>
+							<button name="btnDetails" id="btnDetails7" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit7" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt7" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Ciaran</td>
+						<td>Calderon</td>
+						<td>extrememowers@outlook.com</td>
+						<td>905-999-9999</td>
+						<td class="custAddr">565 Facer St</td>
+						<td class="custPost">L2M6H2</td>
+						<td class="custCity">St. Catharines</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails9" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit9" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt9" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Damo</td>
+						<td>Modi</td>
+						<td>modicreations@signal.com</td>
+						<td>289-176-0000</td>
+						<td class="custAddr">4 Everest Ln</td>
+						<td class="custPost">N5B6D3</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails10" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit10" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt10" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Roger</td>
+						<td>Penrose</td>
+						<td>astrodude@signal.com</td>
+						<td>229-136-0400</td>
+						<td class="custAddr">87 Ridge Rd</td>
+						<td class="custPost">N5B6D3</td>
+						<td class="custCity">Fort Erie</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails11" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit11" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt11" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Eric</td>
+						<td>Clapton</td>
+						<td>ecrocker@outlook.com</td>
+						<td>345-987-0909</td>
+						<td class="custAddr">332 Maple Ln</td>
+						<td class="custPost">K2G6B4</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails12" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit12" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt12" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Elizabeth</td>
+						<td>White</td>
+						<td>sailorgirl22@hotmail.com</td>
+						<td>289-176-9987</td>
+						<td class="custAddr">4 Everest Ln</td>
+						<td class="custPost">M5B6D3</td>
+						<td class="custCity">NOTL</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails13" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit13" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt13" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Jamie</td>
+						<td>Lanister</td>
+						<td>onearm@casterly.net</td>
+						<td>905-333-4454</td>
+						<td class="custAddr">42 Golden Cr</td>
+						<td class="custPost">N1T6U8</td>
+						<td class="custCity">Niagara Falls</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails14" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit14" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt14" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Jimmithy</td>
+						<td>Jackpot</td>
+						<td>jj@gmail.com</td>
+						<td>756-989-2533</td>
+						<td class="custAddr">1 Rainbow Rd</td>
+						<td class="custPost">N5H6D3</td>
+						<td class="custCity">St. Catharines</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails15" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit15" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt15" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Reginald</td>
+						<td>Crookshank</td>
+						<td>regcrook@lycos.com</td>
+						<td>289-888-2565</td>
+						<td class="custAddr">99 Alder Dr</td>
+						<td class="custPost">N5N2F3</td>
+						<td class="custCity">Fort Erie</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails16" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit16" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt16" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Liah</td>
+						<td>Landers</td>
+						<td>laylay123@fun.net</td>
+						<td>905-654-9897</td>
+						<td class="custAddr">121 Wedge Wy</td>
+						<td class="custPost">P3G6N2</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails17" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit17" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt17" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Parker</td>
+						<td>Hefintop</td>
+						<td>y2k@conspiracy.web</td>
+						<td>287-909-7777</td>
+						<td class="custAddr">8787 Outback Rd</td>
+						<td class="custPost">H5G3F6</td>
+						<td class="custCity">Niagara Falls</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails18" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit18" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt18" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Courtney</td>
+						<td>Smith</td>
+						<td>SmithC88@outlook.com</td>
+						<td>289-909-7761</td>
+						<td class="custAddr">400 Lakeshore Rd</td>
+						<td class="custPost">N5B9O9</td>
+						<td class="custCity">NOTL</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails19" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit19" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt19" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Peter</td>
+						<td>Vucenovic</td>
+						<td>vuccyp@gmail.com</td>
+						<td>905-176-0001</td>
+						<td class="custAddr">7 </td>
+						<td class="custPost">N5B6D3</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails20" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit20" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt20" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Demeter</td>
+						<td>Modi</td>
+						<td>nicehair@gmail.com</td>
+						<td>289-176-0001</td>
+						<td class="custAddr">6765 Tree Cr</td>
+						<td class="custPost">N5D2V8</td>
+						<td class="custCity">Welland</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails21" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit21" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt21" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Alejandro</td>
+						<td>Howell</td>
+						<td>hh56_howell@gmail.com</td>
+						<td>289-099-0909</td>
+						<td class="custAddr">11 Industrial Dr</td>
+						<td class="custPost">L2C6H7</td>
+						<td class="custCity">Port Colbourne</td>
+						<td class="custProv">Ontario</td>
+						<td>
+							<button name="btnDetails" id="btnDetails8" onclick="handleBtnDetails(this)">Details</button>
+							<button name="btnEdit" id="btnEdit8" onclick="handleBtnEdit(this)">Edit</button>
+							<button name="btnEqpt" id="btnEqpt8" onclick="handleBtnEqpt(this)">Eqpt</button>
+							<button name="btnEQ" onclick="handleBtnNewEqpt()">New Eqpt</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" tabindex="8" onclick="history.back()">Return</a>
+					</li>
+				 </ul>
+			</nav>
+		</div>
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+		/*Testing JQUERY API STUFF*/
+		//https://datatables.net/examples/api/row_details.html
+
+		//Asked AI how could I appraoch the jquery if I have data instead of a JSON file / AJAX
+		//dl : datalist
+		//dt : column name
+		//dd: value for column name 
+		//Need to remove address when the data is returned and when a user presses more details
+		//Return the address data and add it back. 
+		function format(d){
+			return(
+				'<dl class="largetable">' +
+        	'<dt>Customer Address:</dt>' +
+        	'<dd class="custAddr">' + d[4] + '</dd>' +
+			'<dd class="custPost">' + '&nbsp;&nbsp;' + d[6] + '</dd>' +
+			'<dd class="custCity">' + '&nbsp;&nbsp;' + d[7] + '</dd>' +
+			'<dd class="custProv">' + '&nbsp;&nbsp;' + d[5] + '</dd>' +
+			'<dd></dd>' +
+        	'</dl>'
+			)
+		}
+
+		function formatEquipment(){
+			return(
+				'<tr><td>Serial #</td><td>Model #</td><td>Wnty.</td><td>Received Date</td><td>Departure Date</td><td>Type</td><td>Colour</td><td>Mfr.</td></tr>' +
+				'<tr><td>5433</td><td>54432</td><td>No</td><td>11 Dec 2023</td><td>N/A</td><td>Lawn Mower</td><td>Red</td><td>Honda</td><td><a href="edit-equipment.html"><button>Edit</button> </a><a href="create-repair.html"><button>New Repair</button> </a></td></tr>'
+			)
+		}
+
+		//<li class="nav-item"><a class="nav-link" href="create-customer-repair.html" >New Repair</a></li>'
+
+		//$ jquery which runs once the website is loaded
+	$(document).ready(function() {
+    // Initialize DataTable - similar to line 20 of the link above instead of using a json file it refers to the html DT
+		let table = $('#customerTable').DataTable({
+			order: [[1, 'asc']], //
+			paging: true, //Enable pagination
+			searching: true, //Enable searching
+			responsive: false, //Enable responsive design
+			//Looks at all the columns and sets the orderable functionality to false on the specified target
+			//using -1 meaning the last item in the column list which is the edit button
+			columnDefs:[
+				{orderable:false, targets: -1},
+				{visible:false, targets:4}, 
+				{visible:false, targets:5},
+				{visible:false, targets:6},
+				{visible:false, targets:7}//hides the street address!!
+			],
+			lengthMenu: [
+				[5, 10, 25, -1],
+				[5, 10, 25, 'All']]
+			})
+
+			function handleBtnEqpt(btn){
+			//gets the button with its associated row
+			var clickedRow = btn.closest('tr');
+			//Datable method that allows access to that row and to be able to edit it 
+			var row = table.row(clickedRow); 
+
+			if(row.child.isShown()){
+				row.child.remove();
+				clickedRow.find('.eqSerial').toggle();
+				clickedRow.find('.eqModel').toggle();
+			}else{
+				row.child(formatEquipment(row.data())).show();
+				clickedRow.find('.eqSerial').toggle();
+				clickedRow.find('.eqModel').toggle();
+			}
+			var streetColumn = table.column(4);
+    		streetColumn.visible(!streetColumn.visible());
+		}
+			//Event listener on the customer table waits for a click on the btn details then the function runs
+			$('#customerTable tbody').on('click', 'button[name="btnEqpt"]', function() {
+				handleBtnEqpt(this); //this sends the info on the button (td/tr)
+			});
+
+		function handleBtnDetails(btn){
+			//gets the button with its associated row
+			var clickedRow = btn.closest('tr');
+			//Datable method that allows access to that row and to be able to edit it 
+			var row = table.row(clickedRow); 
+
+			if(row.child.isShown()){
+				row.child.remove();
+				clickedRow.find('.custAddr').toggle();
+				clickedRow.find('.custPost').toggle();
+				clickedRow.find('.custCity').toggle();
+				clickedRow.find('.custProv').toggle();
+			}else{
+				row.child(format(row.data())).show();
+				clickedRow.find('.custAddr').toggle();
+				clickedRow.find('.custPost').toggle();
+				clickedRow.find('.custCity').toggle();
+				clickedRow.find('.custProv').toggle();
+			}
+			var streetColumn = table.column(4);
+    		streetColumn.visible(!streetColumn.visible());
+		}
+			//Event listener on the customer table waits for a click on the btn details then the function runs
+			$('#customerTable tbody').on('click', 'button[name="btnDetails"]', function() {
+				handleBtnDetails(this); //this sends the info on the button (td/tr)
+			});
+	});
+		
+		function handleBtnEdit(button){
+			//button brings all the attributes
+			//store name
+			var buttonName = button.name;
+			
+			//store btnID for future use 
+			var btnId = button.id;
+
+			//Gets the button with its associated table row
+			var clickedRow = button.closest('tr');
+
+			//Getting table for access  //took note of what i asked 
+			let table = $('#customerTable').DataTable(); //ai generated
+			//Acessing rowdata using the api
+			let rowData = table.row(clickedRow).data(); // ai generated
+
+			//Storing the row data
+			let firstName = rowData[0]; //Changed from cells to row Data //ai generated
+			let lastName = rowData[1];
+			let email = rowData[2];
+			let phone = rowData[3];
+			let street = rowData[4];
+			let postalCode = rowData[5];
+			let city = rowData[6];
+			let province = rowData[7];
+			//Convert to JSON to store to local storage
+			var customerData = {
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				phone: phone,
+				street: street,
+				postalCode:postalCode,
+				city:city,
+				province:province
+			}
+			//Storing to local storage
+			var customerJSON = JSON.stringify(customerData)
+			//Stores the name as equipmentData in local storage
+			localStorage.setItem('customerData', customerJSON)
+			// INSPECT => PRESS >> => Application => Local Storage => file:// => Under Key Equipment Data
+			//Then send user to edit page
+			window.location.href = 'edit-customer.html';
+		}
+
+		function handleBtnNewEqpt() {
+			window.location.href = 'create-equipment.html';
+		}
+		/*function handleBtnEqpt(button){
+			//Variables
+			var buttonName = button.name;
+			var btnId = button.id;
+			var clickedRow = button.closest('tr');
+			let table = $('#customerTable').DataTable();
+			let rowData = table.row(clickedRow).data();
+
+			//Storing the row data
+			let firstName = rowData[0];
+			let lastName = rowData[1];
+			let email = rowData[2];
+
+			//Convert to JSON
+			var customerData = {
+				firstName: firstName,
+				lastName: lastName,
+				email: email
+			}
+
+			//Store in local storage
+			var customerJSON = JSON.stringify(customerData);
+			localStorage.setItem('customerData', customerJSON);
+
+			//Send user to the customer-equipment-list page
+			window.location.href = 'customer-equipment-list.html';
+		}*/
+
+	</script>
+</body> 
+</html> 

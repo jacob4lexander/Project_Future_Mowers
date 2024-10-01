@@ -1,0 +1,164 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Edit Repair - Emma's Small Engines</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+</head> 
+<body>
+	<header id="navigation" class="fixed-top animated-header">
+		<div class="row">	
+			<div class="column">
+			  <h1 class="nav-link-home"><a href="index.html" tabindex="1">Emma's Small Engines</a></h1>
+			</div>
+			<div class="column">
+				<nav class="navbar navbar-expand-lg navbar-dark">
+			        <ul class="navbar-nav ml-auto text-center" id="nav">
+			          	<li class="nav-item active">
+			            	<a class="nav-link" href="index.html" tabindex="2">Home</a>
+			          	</li>
+						
+			          	<li class="nav-item">
+			            	<a class="nav-link" href="customer.html" tabindex="3">Customers</a>
+			          	</li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair.html" tabindex="4">Repairs</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="repair-session.html" tabindex="5">Sessions</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="report-selection.html" tabindex="6">Reports</a>
+                        </li>
+						
+						<li class="nav-item">
+                            <a class="nav-link" href="help.html" tabindex="7">Help</a>
+                        </li>
+			        </ul>
+			    </nav>
+		  	</div>
+		</div>
+	</header>
+	<main>
+    <div class="spacer"></div>
+		<div class="cu-shaded-rec">
+		<div class="bread">
+			<p>Home &#8594; Repairs &#8594; Edit Repairs</p>
+		</div>	
+			<h2>Edit Repair</h2>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" href="edit-repair-repair-dropdown-menus.html">Edit Dropdown Menus</a>
+					</li>
+				</ul>
+			</nav>
+			<form>
+			<div class="cu-container">
+				<table class="smalltable" style="border-collapse: collapse;">
+					<tr>
+					   	<td style="padding-top: 20px;">Customer</td>
+					    <td style="padding-top: 20px;"><input type="text" id="customer" name="customer" title="Customer name"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Type</td>
+					    <td style="padding-top: 20px;"><input type="text" id="type" name="type" title="Equipment type"></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;">Serial #</td>
+					    <td style="padding-top: 20px;"><input type="text" id="serialNumber" name="serialnumber" title="Serial number"></td>
+					</tr>
+                    <tr>
+					    <td style="padding-top: 20px;">Service Type</td>
+					    <td style="padding-top: 20px;">
+					    	<select class="crddl" title="Service type dropdown menu" id="selectServiceType">
+								<option value="" selected disabled>Not Selected</option>
+						        <option value="Maintenance">Maintenance</option>
+						        <option value="Assembly">Assembly</option>
+						        <option value="Repair">Repair</option>
+						        <option value="Diagnose">Diagnose</option>
+						        <option value="Other">Other</option>
+      						</select>
+					    </td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Description</td>
+					    <td style="padding-top: 20px;"><textarea name="inputdescription" id="description" rows="6" class="textrearepair" title="Repair description input"></textarea></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Open Date</td>
+					    <td style="padding-top: 20px;"><input type="text" class="crdateopen" id="dateopened" name="dateopened" title="Date the repair is opened" onfocus="(this.type='datetime-local')"></td>
+					</tr>
+					<tr>
+					    <td style="padding-top: 20px;">Close Date</td>
+					    <td style="padding-top: 20px;"><input type="text" class="crdateclose" id="dateclosed" name="dateclosed" title="Date the repair is closed" onfocus="(this.type='datetime-local')"></td>
+					</tr>
+                    <tr>
+						<td style="padding-top: 20px;">Cost</td>
+					    <td style="padding-top: 20px;"><input type="text" id="cost" name="cost" title="Repair cost"></td>
+					</tr>
+				</table>
+			</div>
+				<div class="row">
+					<div class="column">
+						<div class="reset-container">
+							<button type="reset">Reset</button>
+						</div>
+					</div>
+					<div class="column">
+						<div class="submit-container">
+							<button type="submit" onclick="handleBtnSubmit()">Submit</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<ul class="link-center">
+					<li class="nav-item active">
+						<a class="nav-link" onclick="history.back()" tabindex="8">Return</a>
+					</li>
+				 </ul>
+			</nav>	
+		</div>
+		<div class="spacer"></div>	
+	</main>
+	<footer>
+		<small>Emma's Small Engines - JDAC Software - Final Prototype</small>
+	</footer>
+	<script>
+
+		var editData = localStorage.getItem('editData')
+		
+		if(editData){
+			//Turns data to an object so you can access the properties
+			var editData = JSON.parse(editData)
+			console.log(editData)
+
+			//Filling text boxes and the values with the object data/properties
+			document.getElementById('customer').value = editData.customer;
+			document.getElementById('type').value = editData.type;
+			document.getElementById('serialNumber').value = editData.serialNumber;
+            document.getElementById('selectServiceType').value = editData.selectServiceType,
+			document.getElementById('description').value = editData.description,
+            document.getElementById('dateopened').value = editData.dateopened,
+            document.getElementById('dateclosed').value = 'N/A',
+            document.getElementById('cost').value = 'N/A'
+
+			
+		}	
+		else
+		{
+
+		}
+	
+		
+	</script>
+</body> 
+</html>
